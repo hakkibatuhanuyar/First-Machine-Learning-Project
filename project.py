@@ -9,7 +9,7 @@ dataset = pd.read_csv('heart.csv')
 X = dataset.iloc[:,0:13].values
 y = dataset.iloc[:,13:14].values
 
-#Details of dataset
+# Details of dataset
 dataset.head()
 dataset.describe()
 dataset.columns
@@ -26,7 +26,7 @@ sc=StandardScaler()
 X_train=sc.fit_transform(X_train)
 X_test =sc.transform(X_test)
 
-#Importing models
+# Importing models
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.linear_model import LogisticRegression
@@ -35,7 +35,7 @@ from sklearn.naive_bayes import GaussianNB
 from sklearn.svm import SVC
 from xgboost import XGBClassifier
 
-#Evaluate models by cross validation
+# Evaluate models by cross validation
 from sklearn.model_selection import KFold,cross_val_score
 import operator
 
@@ -54,7 +54,7 @@ for i in range(len(models)):
 print("Maksimum skor : {}, {}".format(max(results.items(), key=operator.itemgetter(1))[0],
                                       max(results.items(), key=operator.itemgetter(1))[1]))
 
-#Comparing Algorithms
+# Comparing Algorithms
 # Fitting model to the Training set and predicting
 from sklearn.metrics import confusion_matrix
 def fitmodel(model):
